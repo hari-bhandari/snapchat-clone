@@ -1,7 +1,7 @@
-import React, {useRef} from 'react';
-import Webcam, {WebcamProps} from "react-webcam";
+import React, {useCallback, useRef} from 'react';
+import Webcam from "react-webcam";
 import {WebcamCaptureContainer} from "./WebcamCaptureCss";
-
+import RadioButtonUnChecked from '@material-ui/icons/RadioButtonUnchecked'
 interface VideoConstraints {
     width: number,
     height: number,
@@ -18,11 +18,17 @@ const videoConstraints: VideoConstraints = {
 }
 
 const WebcamCapture = () => {
-    const {width,height,facingMode,audio,screenShotImageFormat} =videoConstraints
+    const {width,height,audio,screenShotImageFormat} =videoConstraints
     const webCamRef=useRef(null)
+    const capture=useCallback(()=>{
+        // @ts-ignore
+        const imageSrc=webCamRef.current.getScreenShot();
+        console.log(imageSrc)
+    },[webCamRef])
     return (
         <WebcamCaptureContainer>
         <Webcam audio={audio} width={width} height={height} ref={webCamRef} screenshotFormat={screenShotImageFormat} videoConstraints={videoConstraints}/>
+        <RadioButtonUnChecked className="webcamCapture__button"/>
         </WebcamCaptureContainer>
     );
 };
