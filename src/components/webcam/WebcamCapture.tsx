@@ -22,13 +22,13 @@ const WebcamCapture = () => {
     const webCamRef=useRef(null)
     const capture=useCallback(()=>{
         // @ts-ignore
-        const imageSrc=webCamRef.current.getScreenShot();
+        const imageSrc=webCamRef.current.getScreenshot();
         console.log(imageSrc)
     },[webCamRef])
     return (
         <WebcamCaptureContainer>
         <Webcam audio={audio} width={width} height={height} ref={webCamRef} screenshotFormat={screenShotImageFormat} videoConstraints={videoConstraints}/>
-        <RadioButtonUnChecked className="webcamCapture__button"/>
+        <RadioButtonUnChecked className="webcamCapture__button" onClick={capture} />
         </WebcamCaptureContainer>
     );
 };
