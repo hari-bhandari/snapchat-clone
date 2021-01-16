@@ -17,7 +17,7 @@ const videoConstraints: VideoConstraints = {
     screenShotImageFormat:"image/jpeg"
 }
 
-const WebcamCapture = () => {
+const WebcamCapture:React.FC = () => {
     const {width,height,audio,screenShotImageFormat} =videoConstraints
     const [image,setImage]=useState<string>()
     const webCamRef=useRef(null)
