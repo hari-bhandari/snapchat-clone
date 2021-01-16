@@ -2,22 +2,22 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
 interface CounterState {
-    cameraImage: String|null;
+    cameraImage: string;
 }
 
 const initialState: CounterState = {
-    cameraImage: null,
+    cameraImage: '',
 };
 
 export const cameraSlice = createSlice({
     name: 'camera',
     initialState,
     reducers: {
-        setCameraImage: (state, action: PayloadAction<String|null>) => {
+        setCameraImage: (state, action: PayloadAction<string>) => {
             state.cameraImage =action.payload;
         },
         resetCameraImage:(state)=>{
-            state.cameraImage=null
+            state.cameraImage=''
         }
     },
 });

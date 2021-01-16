@@ -1,2 +1,4 @@
 import styled from "styled-components";
-export {}
+export const PreviewContainer=styled.div`
+    
+`
