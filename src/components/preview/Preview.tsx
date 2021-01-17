@@ -1,10 +1,18 @@
 import React, {useEffect} from 'react';
-import {PreviewContainer} from "./PreviewCSS";
+import {PreviewContainer,ToolbarRight} from "./PreviewCSS";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCameraImage} from "../../features/camera/cameraSlice";
 import {useHistory} from "react-router-dom";
-import CloseIcon from '@material-ui/icons/Close'
 import {resetCameraImage} from '../../features/camera/cameraSlice'
+//material ui icons
+import CloseIcon from '@material-ui/icons/Close'
+import TextFieldsIcon from '@material-ui/icons/TextFields';
+import CreateIcon from '@material-ui/icons/Create';
+import NoteIcon from '@material-ui/icons/Note';
+import MusicNoteIcon from '@material-ui/icons/MusicNote';
+import AttachFileIcon from '@material-ui/icons/AttachFile';
+import CropIcon from '@material-ui/icons/Crop';
+import TimerIcon from '@material-ui/icons/Timer';
 const Preview:React.FC = () => {
     const dispatch=useDispatch()
     const cameraImage=useSelector(selectCameraImage)
@@ -20,7 +28,17 @@ const Preview:React.FC = () => {
     return (
         <PreviewContainer>
             <CloseIcon className={'close'} onClick={closePreview}/>
+            <ToolbarRight>
+                <TextFieldsIcon/>
+                <CreateIcon/>
+                <NoteIcon/>
+                <MusicNoteIcon/>
+                <AttachFileIcon/>
+                <CropIcon/>
+                <TimerIcon/>
+            </ToolbarRight>
             <img src={cameraImage} alt=""/>
+
         </PreviewContainer>
     );
 };

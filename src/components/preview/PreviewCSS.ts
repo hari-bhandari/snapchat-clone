@@ -10,3 +10,17 @@ export const PreviewContainer=styled.div`
   }
   
 `
+export const ToolbarRight=styled.div`
+    color: white;
+  position: absolute;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  margin: 5px;
+  .MuiSvgIcon-root{
+    font-size:20px!important; 
+    margin-bottom: 8px;
+    cursor: pointer;
+  }
+`
+

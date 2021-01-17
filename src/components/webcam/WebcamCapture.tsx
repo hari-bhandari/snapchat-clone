@@ -1,4 +1,4 @@
-import React, {useCallback, useRef, useState} from 'react';
+import React, {useCallback, useRef} from 'react';
 import Webcam from "react-webcam";
 import {WebcamCaptureContainer} from "./WebcamCaptureCss";
 import RadioButtonUnChecked from '@material-ui/icons/RadioButtonUnchecked'
