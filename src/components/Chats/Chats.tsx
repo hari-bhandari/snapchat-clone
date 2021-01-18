@@ -1,10 +1,25 @@
-import React from 'react';
-import {ChatContainer,ChatHeader,ChatSearch} from "./ChatsCss";
+import React, {useEffect, useState} from 'react';
+import {ChatContainer, ChatHeader, ChatSearch, ChatPosts} from "./ChatsCss";
 import {Avatar} from "@material-ui/core";
 //icons
 import SearchIcon from "@material-ui/icons/Search"
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble"
-const Chats:React.FC = () => {
+import {db} from "../../firebase";
+interface Post{
+    id:string,
+    data:Object
+}
+const Chats: React.FC = () => {
+
+    const [posts, setPosts] = useState < Post[] > ([])
+    useEffect(() => {
+        db.collection('posts').orderBy('timestamp', 'desc')
+            .onSnapshot((snapshot) =>
+                setPosts(snapshot.docs.map((doc) => ({
+                    id: doc.id,
+                    data: doc.data()
+                }))))
+    }, [])
     return (
         <ChatContainer>
             <ChatHeader>
@@ -15,6 +30,9 @@ const Chats:React.FC = () => {
                 </ChatSearch>
                 <ChatBubbleIcon className={"chatIcon"}/>
             </ChatHeader>
+            <ChatPosts>
+
+            </ChatPosts>
 
         </ChatContainer>
     );
