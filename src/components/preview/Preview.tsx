@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-import {PreviewContainer,ToolbarRight} from "./PreviewCSS";
+import {PreviewContainer,ToolbarRight,Footer} from "./PreviewCSS";
 import {useDispatch, useSelector} from "react-redux";
 import {selectCameraImage} from "../../features/camera/cameraSlice";
 import {useHistory} from "react-router-dom";
@@ -13,6 +13,7 @@ import MusicNoteIcon from '@material-ui/icons/MusicNote';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import CropIcon from '@material-ui/icons/Crop';
 import TimerIcon from '@material-ui/icons/Timer';
+import SendIcon from '@material-ui/icons/Send'
 const Preview:React.FC = () => {
     const dispatch=useDispatch()
     const cameraImage=useSelector(selectCameraImage)
@@ -38,7 +39,10 @@ const Preview:React.FC = () => {
                 <TimerIcon/>
             </ToolbarRight>
             <img src={cameraImage} alt=""/>
-
+            <Footer>
+                <h2>Send Now</h2>
+                <SendIcon fontSize={"small"} className="send"/>
+            </Footer>
         </PreviewContainer>
     );
 };

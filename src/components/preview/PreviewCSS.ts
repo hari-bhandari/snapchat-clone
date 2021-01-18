@@ -23,4 +23,25 @@ export const ToolbarRight=styled.div`
     cursor: pointer;
   }
 `
+export const Footer=styled.div`
+  position: absolute;
+  bottom: 0;
+  right: -25px;
+  transform: translate(-50%,-50%);
+  background-color: yellow;
+  color: black;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 30px;
+  padding: 7px;
+  cursor: pointer;
+  h2{
+    font-size: 8px;
+    margin-right: 3px;
+  }
+  .send{
+    font-size: 10px!important;
+  }
+`
 
