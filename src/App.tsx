@@ -8,6 +8,7 @@ import {
     BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import {AppBody,AppContainer} from "./AppCSS";
 import Preview from "./components/preview/Preview";
+import Chats from "./components/Chats/Chats";
 
 function App() {
     return (
@@ -22,6 +23,9 @@ function App() {
                 </Route>
                 <Route exact path="/preview">
                     <Preview/>
+                </Route>
+                <Route exact path="/chats">
+                    <Chats/>
                 </Route>
             </Switch>
                 </AppBody>
