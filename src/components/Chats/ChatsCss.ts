@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const ChatContainer = styled.div`
+export const ChatsContainer = styled.div`
   position: relative;
   height: 400px;
   width: 250px;
@@ -42,20 +42,53 @@ export const ChatSearch = styled.div`
   }
 `
 export const ChatPosts = styled.div`
-  box-shadow: 1px -7px 7px -6px rgba(0,0,0,0.44);
+  box-shadow: 1px -7px 7px -6px rgba(0, 0, 0, 0.44);
   height: 359px;
   margin-top: -9px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   background-color: white;
   overflow: scroll;
-  &::-webkit-scrollbar{
+
+  &::-webkit-scrollbar {
     display: none;
   }
+
   -ms-overflow-style: none;
-  scrollbar-width:none;
+  scrollbar-width: none;
 
 `
-// export const ChatHeader=styled.div`
-//
-// `
+//Chat
+export const ChatContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-bottom: 1px solid whitesmoke;
+  cursor: pointer;
+
+  .avatar {
+    width: 35px !important;
+    height: 35px !important;
+  }
+
+  .read {
+    color: #ed3b55;
+  }
+  &:hover{
+    opacity: 0.8;
+  }
+`
+export const ChatInfo = styled.div`
+  padding-left: 5px;
+  flex: 1;
+
+  h4 {
+    font-size: 11px;
+    font-weight: 500;
+  }
+  p{
+    font-size: 9px;
+  }
+
+`
