@@ -10,6 +10,8 @@ import {useDispatch, useSelector} from "react-redux";
 import {selectUser} from "../../features/counter/appSlice";
 import {RadioButtonUnchecked} from "@material-ui/icons";
 import {useHistory} from "react-router-dom";
+import {resetCameraImage} from "../../features/camera/cameraSlice";
+
 interface Post{
     id:string,
     data?:Data
@@ -23,6 +25,7 @@ const Chats: React.FC = () => {
     const history=useHistory()
     const [posts, setPosts] = useState < Array<Post> > ([])
     const takeSnap=()=>{
+        dispatch(resetCameraImage())
         history.push('/')
     }
     useEffect(() => {

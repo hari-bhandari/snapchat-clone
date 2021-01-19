@@ -17,8 +17,10 @@ import AttachFileIcon from '@material-ui/icons/AttachFile';
 import CropIcon from '@material-ui/icons/Crop';
 import TimerIcon from '@material-ui/icons/Timer';
 import SendIcon from '@material-ui/icons/Send'
+import {selectUser} from "../../features/counter/appSlice";
 
 const Preview: React.FC = () => {
+    const user=useSelector(selectUser)
     const dispatch = useDispatch()
     const cameraImage = useSelector(selectCameraImage)
     const history = useHistory()
@@ -39,8 +41,9 @@ const Preview: React.FC = () => {
             storage.ref('posts').child(id).getDownloadURL().then((url)=>{
                 db.collection('posts').add({
                     imageUrl:url,
-                    username:'HariBhandari',
+                    username:user?.username,
                     read:false,
+                    profilePic:user?.profilePic,
                     timestamp:firebase.firestore.FieldValue.serverTimestamp()
                 })
                 history.replace('/chats')
