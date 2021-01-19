@@ -28,7 +28,7 @@ const Chat: React.FC<DataProps> = ({data: {id, data: {profilePic, username, time
             <Avatar className={"avatar"} src={profilePic}/>
             <ChatInfo>
                 <h4>{username}</h4>
-                <p>tap to view - <ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()}/></p>
+                <p>{!read&&"tap to view - "}{" "}<ReactTimeago date={new Date(timestamp?.toDate()).toUTCString()}/></p>
             </ChatInfo>
             {!read && <StopRounded className={"read"}/>}
         </ChatContainer>

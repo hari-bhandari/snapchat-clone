@@ -18,12 +18,14 @@ const ChatView = () => {
     return (
         <ChatViewContainer>
             <img src={selectedImage} alt="image"/>
+            <div className="timer">
             <CountdownCircleTimer isPlaying duration={10} colors={[["#004777",0.33],["F7B801",0.33],["#A300000",0.33]]} strokeWidth={6} size={50}>{({remainingTime})=>{
                 if(remainingTime===0){
                     exit()
                 }
                 return remainingTime
             }}</CountdownCircleTimer>
+            </div>
         </ChatViewContainer>
     );
 };
