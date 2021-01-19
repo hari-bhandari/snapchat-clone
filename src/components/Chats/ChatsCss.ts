@@ -32,6 +32,10 @@ export const ChatHeader = styled.div`
     width: 25px;
     height: 25px;
   }
+  .chatIcon{
+    color: white;
+    font-size: 18px!important;
+  }
 
 `
 export const ChatSearch = styled.div`
@@ -53,6 +57,11 @@ export const ChatSearch = styled.div`
     color: white;
     opacity: 1;
   }
+  .search{
+    color: white;
+    font-size: 13px!important;
+  }
+  
 `
 export const ChatPosts = styled.div`
   box-shadow: 1px -7px 7px -6px rgba(0, 0, 0, 0.44);

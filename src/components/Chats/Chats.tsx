@@ -6,9 +6,10 @@ import Chat from "./Chat";
 import SearchIcon from "@material-ui/icons/Search"
 import ChatBubbleIcon from "@material-ui/icons/ChatBubble"
 import {auth, db} from "../../firebase";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {selectUser} from "../../features/counter/appSlice";
 import {RadioButtonUnchecked} from "@material-ui/icons";
+import {useHistory} from "react-router-dom";
 interface Post{
     id:string,
     data?:Data
@@ -18,9 +19,11 @@ interface Data{
 }
 const Chats: React.FC = () => {
     const user=useSelector(selectUser)
+    const dispatch=useDispatch()
+    const history=useHistory()
     const [posts, setPosts] = useState < Array<Post> > ([])
     const takeSnap=()=>{
-
+        history.push('/')
     }
     useEffect(() => {
         db.collection('posts').orderBy('timestamp', 'desc')
@@ -35,7 +38,7 @@ const Chats: React.FC = () => {
             <ChatHeader>
                 <Avatar className={"avatar"} src={user?.profilePic} onClick={()=>auth.signOut()}/>
                 <ChatSearch>
-                    <SearchIcon/>
+                    <SearchIcon className={"search"}/>
                     <input placeholder="Search friends" type="text"/>
                 </ChatSearch>
                 <ChatBubbleIcon className={"chatIcon"}/>
