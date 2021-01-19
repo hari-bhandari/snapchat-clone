@@ -2,12 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
 interface CounterState {
-  user: object|null,
+  user: User|null,
   selectedImage:string|undefined
+}
+interface User{
+  username:any
+  profilePic:any,
+  id:any
 }
 
 const initialState: CounterState = {
-  user: null,
+  user:null,
   selectedImage:undefined
 };
 
@@ -15,7 +20,7 @@ export const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    login: (state, action: PayloadAction<object>) => {
+    login: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
     },
     logout: (state) => {

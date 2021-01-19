@@ -4,6 +4,19 @@ export const ChatsContainer = styled.div`
   position: relative;
   height: 400px;
   width: 250px;
+  .takePicIcon{
+    position: absolute;
+    background-color: white;
+    border-radius: 200px;
+    font-size: 40px!important;
+    cursor: pointer;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    &:hover{
+      opacity: 0.8;
+    }
+  }
 
 `
 export const ChatHeader = styled.div`
