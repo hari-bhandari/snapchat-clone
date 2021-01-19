@@ -3,12 +3,12 @@ import { RootState } from '../../app/store';
 
 interface CounterState {
   user: object|null,
-  selectedImage:string|null
+  selectedImage:string|undefined
 }
 
 const initialState: CounterState = {
   user: null,
-  selectedImage:null
+  selectedImage:undefined
 };
 
 export const appSlice = createSlice({
@@ -25,7 +25,7 @@ export const appSlice = createSlice({
       state.selectedImage = action.payload;
     },
     resetImage: (state) => {
-      state.selectedImage = null;
+      state.selectedImage = undefined;
     },
   },
 });

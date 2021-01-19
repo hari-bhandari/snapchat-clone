@@ -9,6 +9,7 @@ import {
 import {AppBody,AppContainer} from "./AppCSS";
 import Preview from "./components/preview/Preview";
 import Chats from "./components/Chats/Chats";
+import ChatView from "./components/ChatView/ChatView";
 
 function App() {
     return (
@@ -23,6 +24,9 @@ function App() {
                 </Route>
                 <Route exact path="/preview">
                     <Preview/>
+                </Route>
+                <Route exact path="/chats/view">
+                    <ChatView/>
                 </Route>
                 <Route exact path="/chats">
                     <Chats/>
